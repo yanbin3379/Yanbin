@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ConsoleApplication13
+namespace KnightTravails
 {
     //The purpose of this program is to find the shortest path for a given starting position and ending position for a Knight tour. In this case, Breath First Search (BFS) has been applied. 
-    class Program
+    class KnightTour
     {
         static List<Position> history = new List<Position>(); //List of positions that have been visited
         static Queue<Position> queue = new Queue<Position>(); // Queue for the BFS 
