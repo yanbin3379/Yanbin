@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace KnightTravails
+namespace KnightTour
 {
-    //The purpose of this program is to find the shortest path for a given starting position and ending position for a Knight tour. In this case, Breath First Search (BFS) has been applied. 
-    class KnightTour
+    // This program has been written by C# console application. The purpose of this program is to find the shortest path for a given starting position and ending position for a Knight tour. In this case, Breath First Search (BFS) has been applied. 
+    class KnightTravails
     {
         static List<Position> history = new List<Position>(); //List of positions that have been visited
         static Queue<Position> queue = new Queue<Position>(); // Queue for the BFS 
         static List<Position> currentDepth = new List<Position>(); //List of positions for the current depth
         static void Main(string[] args)
         {
-          
+
             //User interface 
-            Console.WriteLine("This is a Knight's Travails program developed by Yanbin Liu.");
+            Console.WriteLine("Welcome! This is a Knight's Travails program developed by Yanbin Liu.");
             bool running = true;
             while (running)
             {
@@ -37,7 +37,7 @@ namespace KnightTravails
         //Get the user input for two positions and start tour
         public static void startTour()
         {
-            Console.WriteLine("You are going to enter two position in order to play the tour.");
+            Console.WriteLine("You are going to enter two position in order to play the tour.\n");
             Console.WriteLine("The corrent format of a position including two characters which starts with a letter(A-H/a-h: left to right) and follows by a number(1-8 : top to bottom)");
             Position start = null;
             Position end = null;
@@ -47,7 +47,7 @@ namespace KnightTravails
             while (!check)
             {
 
-                Console.WriteLine("Please enter the start position(eg. A8)");
+                Console.Write("Please enter the start position(eg. A8):");
                 start = safeReadPosition();
                 if (start != null)
                     check = true;
@@ -58,7 +58,7 @@ namespace KnightTravails
             //Check if the position is vaild
             while (!check)
             {
-                Console.WriteLine("Please enter the end position(eg. B6)");
+                Console.Write("Please enter the end position(eg. B6):");
                 end = safeReadPosition();
                 if (end != null)
                     check = true;
@@ -130,7 +130,6 @@ namespace KnightTravails
                             temp = temp.Parent;
                         }
 
-                        Console.Write("The shortest path is ");
                         for (int i = output.Count - 2; i >= 0; i--)
                         {
                             Console.Write(output[i].ToString() + " ");
@@ -191,7 +190,7 @@ namespace KnightTravails
 
             try
             {
-                string inputPosition = Console.ReadLine().ToUpper(); 
+                string inputPosition = Console.ReadLine().ToUpper();
                 if (inputPosition.Length != 2)
                 {
                     Console.WriteLine("Invalid position!");
@@ -199,10 +198,10 @@ namespace KnightTravails
                 }
 
                 int x = (int)inputPosition[0] - 64;
-                int y = (int)inputPosition[1] - 48; 
+                int y = (int)inputPosition[1] - 48;
 
                 Position outputPosition = new Position(x, y);
-                
+
                 //Check the position is inside the chessboard
                 if (outputPosition.check())
                     return outputPosition;
@@ -271,8 +270,8 @@ namespace KnightTravails
         //Check if two positions are the same
         public bool comparePosition(Position other)
         {
-          return (this.x == other.x && this.y == other.y);
-        
+            return (this.x == other.x && this.y == other.y);
+
         }
 
         //Generate the output position for the correct format
